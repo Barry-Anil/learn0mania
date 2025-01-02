@@ -136,7 +136,7 @@ export default function DrawingCanvas({
         </div>
       </div>
 
-      <div ref={canvasRef} className="border border-gray-300 rounded">
+      <div ref={canvasRef} onLoad={loadInitialDrawing} className="border border-gray-300 rounded">
         <CanvasDraw
            brushRadius={brushSize}
            brushColor={brushColor}
