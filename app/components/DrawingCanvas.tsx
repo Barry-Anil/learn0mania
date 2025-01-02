@@ -22,7 +22,9 @@ export default function DrawingCanvas({
   width = 400,
   height = 400,
 }: DrawingCanvasProps) {
+  
   const canvasRef = useRef<any>(null)
+  
   const [isDrawing, setIsDrawing] = useState(false)
   const [brushSize, setBrushSize] = useState(2)
   const [brushColor, setBrushColor] = useState('#000000')
@@ -92,6 +94,8 @@ export default function DrawingCanvas({
 
   const brushSizes = [2, 4, 6, 8, 10]
 
+
+  
   return (
     <div className="space-y-4 p-4 bg-white rounded-lg shadow-md">
       <div className="space-y-4">
@@ -132,17 +136,15 @@ export default function DrawingCanvas({
         </div>
       </div>
 
-      <div className="border border-gray-300 rounded">
-      <CanvasDraw
-          ref={canvasRef}
-          brushRadius={brushSize}
-          brushColor={brushColor}
-          lazyRadius={0}
-          canvasWidth={width}
-          canvasHeight={height}
-          hideGrid
-          onChange={() => setIsDrawing(true)}
-          onLoad={loadInitialDrawing}
+      <div ref={canvasRef} className="border border-gray-300 rounded">
+        <CanvasDraw
+           brushRadius={brushSize}
+           brushColor={brushColor}
+           lazyRadius={0}
+           canvasWidth={width}
+           canvasHeight={height}
+           hideGrid
+           onChange={() => setIsDrawing(true)}
         />
       </div>
 
